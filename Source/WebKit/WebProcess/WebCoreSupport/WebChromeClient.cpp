@@ -824,13 +824,6 @@ std::unique_ptr<DateTimeChooser> WebChromeClient::createDateTimeChooser(DateTime
 
 #endif
 
-#if ENABLE(ORIENTATION_EVENTS) && !PLATFORM(IOS_FAMILY)
-int WebChromeClient::deviceOrientation() const {
-    // Only overrides are supported for non-iOS platforms.
-    return 0;
-}
-#endif
-
 void WebChromeClient::runOpenPanel(Frame& frame, FileChooser& fileChooser)
 {
     if (m_page.activeOpenPanelResultListener())
