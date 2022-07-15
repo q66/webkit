@@ -36,12 +36,32 @@ class PixelBuffer;
 
 WEBCORE_EXPORT uint8_t verifyImageBufferIsBigEnough(const void* buffer, size_t bufferSize);
 
+<<<<<<< HEAD
 RetainPtr<CFStringRef> utiFromImageBufferMIMEType(const String& mimeType);
 CFStringRef jpegUTI();
 Vector<uint8_t> encodeData(CGImageRef, const String& mimeType, std::optional<double> quality);
 Vector<uint8_t> encodeData(const PixelBuffer&, const String& mimeType, std::optional<double> quality);
+||||||| parent of 818b6af920c0 (apply patch)
+CFStringRef jpegUTI();
+WEBCORE_EXPORT RetainPtr<CFStringRef> utiFromImageBufferMIMEType(const String&);
+=======
+WEBCORE_EXPORT CFStringRef jpegUTI();
+WEBCORE_EXPORT RetainPtr<CFStringRef> utiFromImageBufferMIMEType(const String&);
+>>>>>>> 818b6af920c0 (apply patch)
 
+<<<<<<< HEAD
 WEBCORE_EXPORT String dataURL(CGImageRef, const String& mimeType, std::optional<double> quality);
+||||||| parent of 818b6af920c0 (apply patch)
+Vector<uint8_t> data(CGImageRef, CFStringRef destinationUTI, std::optional<double> quality);
+Vector<uint8_t> data(const PixelBuffer&, const String& mimeType, std::optional<double> quality);
+
+WEBCORE_EXPORT String dataURL(CGImageRef, CFStringRef destinationUTI, const String& mimeType, std::optional<double> quality);
+=======
+WEBCORE_EXPORT Vector<uint8_t> data(CGImageRef, CFStringRef destinationUTI, std::optional<double> quality);
+Vector<uint8_t> data(const PixelBuffer&, const String& mimeType, std::optional<double> quality);
+
+WEBCORE_EXPORT String dataURL(CGImageRef, CFStringRef destinationUTI, const String& mimeType, std::optional<double> quality);
+>>>>>>> 818b6af920c0 (apply patch)
 String dataURL(const PixelBuffer&, const String& mimeType, std::optional<double> quality);
 
 } // namespace WebCore
