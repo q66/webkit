@@ -72,13 +72,7 @@ static bool encodeImage(cairo_surface_t* image, const String& mimeType, Vector<u
     return cairo_surface_write_to_png_stream(image, writeFunction, output) == CAIRO_STATUS_SUCCESS;
 }
 
-<<<<<<< HEAD
-Vector<uint8_t> encodeData(cairo_surface_t* image, const String& mimeType, std::optional<double>)
-||||||| parent of 818b6af920c0 (apply patch)
-Vector<uint8_t> data(cairo_surface_t* image, const String& mimeType, std::optional<double>)
-=======
 static Vector<uint8_t> encodeJpeg(cairo_surface_t* image, int quality)
->>>>>>> 818b6af920c0 (apply patch)
 {
     if (cairo_surface_get_type(image) != CAIRO_SURFACE_TYPE_IMAGE) {
         fprintf(stderr, "Unexpected cairo surface type: %d\n", cairo_surface_get_type(image));
@@ -138,7 +132,7 @@ static Vector<uint8_t> encodeJpeg(cairo_surface_t* image, int quality)
     return output;
 }
 
-Vector<uint8_t> data(cairo_surface_t* image, const String& mimeType, std::optional<double> quality)
+Vector<uint8_t> encodeData(cairo_surface_t* image, const String& mimeType, std::optional<double> quality)
 {
     if (mimeType == "image/jpeg"_s) {
         int qualityPercent = 100;

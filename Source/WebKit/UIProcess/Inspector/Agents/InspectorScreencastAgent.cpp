@@ -272,7 +272,7 @@ void InspectorScreencastAgent::encodeFrame()
             transformedImageRef = adoptCF(CGBitmapContextCreateImage(context.get()));
             imagePtr = transformedImageRef.get();
         }
-        auto data = WebCore::data(imagePtr, WebCore::jpegUTI(), m_screencastQuality * 0.1);
+        auto data = WebCore::encodeData(imagePtr, "image/jpeg"_s, m_screencastQuality * 0.1);
 
         // Do not send the same frame over and over.
         auto cryptoDigest = PAL::CryptoDigest::create(PAL::CryptoDigest::Algorithm::SHA_1);

@@ -56,13 +56,8 @@ PACKAGES=(
     libwayland-dev
     libwebp-dev
     libwoff-dev
-<<<<<<< HEAD
-    libxml2-utils
-||||||| parent of 818b6af920c0 (apply patch)
-=======
     libxml2-utils
     libxcb-glx0-dev
->>>>>>> 818b6af920c0 (apply patch)
     libxslt1-dev
     ninja-build
     patch

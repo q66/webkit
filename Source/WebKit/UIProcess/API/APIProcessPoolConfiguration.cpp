@@ -53,15 +53,9 @@ Ref<ProcessPoolConfiguration> ProcessPoolConfiguration::copy()
     copy->m_ignoreSynchronousMessagingTimeoutsForTesting = this->m_ignoreSynchronousMessagingTimeoutsForTesting;
     copy->m_attrStyleEnabled = this->m_attrStyleEnabled;
     copy->m_shouldThrowExceptionForGlobalConstantRedeclaration = this->m_shouldThrowExceptionForGlobalConstantRedeclaration;
-<<<<<<< HEAD
-||||||| parent of 818b6af920c0 (apply patch)
-    copy->m_overrideLanguages = this->m_overrideLanguages;
-=======
-    copy->m_overrideLanguages = this->m_overrideLanguages;
 #if PLATFORM(MAC)
     copy->m_forceOverlayScrollbars = this->m_forceOverlayScrollbars;
 #endif
->>>>>>> 818b6af920c0 (apply patch)
     copy->m_alwaysRunsAtBackgroundPriority = this->m_alwaysRunsAtBackgroundPriority;
     copy->m_shouldTakeUIBackgroundAssertion = this->m_shouldTakeUIBackgroundAssertion;
     copy->m_shouldCaptureDisplayInUIProcess = this->m_shouldCaptureDisplayInUIProcess;

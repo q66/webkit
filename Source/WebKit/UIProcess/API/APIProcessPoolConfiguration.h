@@ -179,15 +179,9 @@ private:
     bool m_ignoreSynchronousMessagingTimeoutsForTesting { false };
     bool m_attrStyleEnabled { false };
     bool m_shouldThrowExceptionForGlobalConstantRedeclaration { true };
-<<<<<<< HEAD
-||||||| parent of 818b6af920c0 (apply patch)
-    Vector<WTF::String> m_overrideLanguages;
-=======
-    Vector<WTF::String> m_overrideLanguages;
 #if PLATFORM(MAC)
     bool m_forceOverlayScrollbars { false };
 #endif
->>>>>>> 818b6af920c0 (apply patch)
     bool m_alwaysRunsAtBackgroundPriority { false };
     bool m_shouldTakeUIBackgroundAssertion { true };
     bool m_shouldCaptureDisplayInUIProcess { DEFAULT_CAPTURE_DISPLAY_IN_UI_PROCESS };
