@@ -145,17 +145,18 @@ void WKContextConfigurationSetIgnoreSynchronousMessagingTimeoutsForTesting(WKCon
     toImpl(configuration)->setIgnoreSynchronousMessagingTimeoutsForTesting(ignore);
 }
 
-WKArrayRef WKContextConfigurationCopyOverrideLanguages(WKContextConfigurationRef)
+/* playwright revert fb205fb */
+WKArrayRef WKContextConfigurationCopyOverrideLanguages(WKContextConfigurationRef configuration)
 {
-    // FIXME: Delete this function.
-    return toAPI(&API::Array::create().leakRef());
+    return toAPI(&API::Array::createStringArray(toImpl(configuration)->overrideLanguages()).leakRef());
 }
 
-void WKContextConfigurationSetOverrideLanguages(WKContextConfigurationRef, WKArrayRef)
+void WKContextConfigurationSetOverrideLanguages(WKContextConfigurationRef configuration, WKArrayRef overrideLanguages)
 {
-    // Use +[WKWebView _setOverrideLanguagesForTesting:] instead.
-    // FIXME: Delete this function.
+    toImpl(configuration)->setOverrideLanguages(toImpl(overrideLanguages)->toStringVector());
 }
+/* end playwright revert fb205fb */
+
 
 bool WKContextConfigurationProcessSwapsOnNavigation(WKContextConfigurationRef configuration)
 {

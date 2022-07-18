@@ -596,6 +596,13 @@ WKRetainPtr<WKContextConfigurationRef> TestController::generateContextConfigurat
     WKContextConfigurationSetFullySynchronousModeIsAllowedForTesting(configuration.get(), true);
     WKContextConfigurationSetIgnoreSynchronousMessagingTimeoutsForTesting(configuration.get(), options.ignoreSynchronousMessagingTimeouts());
 
+    /* playwright revert fb205fb */
+    auto overrideLanguages = adoptWK(WKMutableArrayCreate());
+    for (auto& language : options.overrideLanguages())
+        WKArrayAppendItem(overrideLanguages.get(), toWK(language).get());
+    WKContextConfigurationSetOverrideLanguages(configuration.get(), overrideLanguages.get());
+    /* end playwright revert fb205fb */
+
     if (options.shouldEnableProcessSwapOnNavigation()) {
         WKContextConfigurationSetProcessSwapsOnNavigation(configuration.get(), true);
         if (options.enableProcessSwapOnWindowOpen())

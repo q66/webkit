@@ -205,11 +205,7 @@ void TestController::platformCreateWebView(WKPageConfigurationRef, const TestOpt
         [copiedConfiguration _setApplicationManifest:[_WKApplicationManifest applicationManifestFromJSON:text manifestURL:nil documentURL:nil]];
     }
 
-    auto overrideLanguages = options.overrideLanguages();
-    NSMutableArray<NSString *> *overrideLanguagesForAPI = [NSMutableArray arrayWithCapacity:overrideLanguages.size()];
-    for (auto& language : overrideLanguages)
-        [overrideLanguagesForAPI addObject:[NSString stringWithUTF8String:language.c_str()]];
-    [TestRunnerWKWebView _setOverrideLanguagesForTesting:overrideLanguagesForAPI];
+    /* playwright: removed overrideLanguages block here (playwright revert fb205fb) */
 
     m_mainWebView = makeUnique<PlatformWebView>(copiedConfiguration.get(), options);
     finishCreatingPlatformWebView(m_mainWebView.get(), options);
